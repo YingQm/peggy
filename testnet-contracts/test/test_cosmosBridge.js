@@ -21,8 +21,8 @@ contract("CosmosBridge", function(accounts) {
   const userThree = accounts[3];
 
   // Contract's enum ClaimType can be represented a sequence of integers
-  const CLAIM_TYPE_BURN = 0;
-  const CLAIM_TYPE_LOCK = 1;
+  const CLAIM_TYPE_BURN = 1;
+  const CLAIM_TYPE_LOCK = 2;
 
   describe("CosmosBridge smart contract deployment", function() {
     beforeEach(async function() {

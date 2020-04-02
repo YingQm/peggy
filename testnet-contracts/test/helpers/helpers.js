@@ -11,6 +11,8 @@ function fixSignature(signature) {
 }
 
 function toEthSignedMessageHash(messageHex) {
+  // 不处理 调用 recover 会处理
+  retirn messageHex
   const messageBuffer = Buffer.from(messageHex.substring(2), "hex");
   const prefix = Buffer.from(
     `\u0019Ethereum Signed Message:\n${messageBuffer.length}`

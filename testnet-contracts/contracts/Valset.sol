@@ -89,7 +89,7 @@ contract Valset {
     }
 
     function recover(
-        string memory _message,
+        bytes32 _message,
         bytes memory _signature
     )
         public
@@ -393,9 +393,13 @@ contract Valset {
     /**
     * @dev prefix a bytes32 value with "\x19Ethereum Signed Message:" and hash the result
     */
-    function ethMessageHash(string memory message) internal pure returns (bytes32) {
-        return keccak256(abi.encodePacked(
-            "\x19Ethereum Signed Message:\n32", keccak256(abi.encodePacked(message)))
-        );
+    //function ethMessageHash(string memory message) internal pure returns (bytes32) {
+    //    return keccak256(abi.encodePacked(
+    //        "\x19Ethereum Signed Message:\n32", keccak256(abi.encodePacked(message)))
+    //    );
+    //}
+
+    function ethMessageHash(bytes32 hash) internal pure returns (bytes32) {
+        return keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", hash));
     }
 }
